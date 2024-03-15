@@ -1,14 +1,26 @@
 [
   {
-    "videoLink": "first_dynasty_video.mp4",
+    "videoLink": "firstdynastyvideo.mp4",
     "imageLink": "img1.png",
     "name": "First Dynasty",
-    "description": "Description of the First Dynasty.</br> very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text."
+    "description": "Description of the First Dynasty.\nWrite \\n to enter new line.\n very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text. very long text."
+  },
+  {
+    "videoLink": "second_dynasty_video.mp4",    
+	"imageLink": "img1.png",
+    "name": "Second Dynasty",
+    "description": "Description of the Second Dynasty."
   },
   {
     "videoLink": "https://www.youtube.com/watch?v=dWq0iC4YqbE",    
 	"imageLink": "img1.png",
-    "name": "Second Dynasty",
-    "description": "Description of the Second Dynasty."
+    "name": "Pyramid",
+    "description": "You can also upload your videos on youtube and put the link here with this format https://www.youtube.com/watch?v=dWq0iC4YqbE"
+  },
+  {
+    "videoLink": "https://youtu.be/dWq0iC4YqbE?si=4h-DtiM1HBS3fdwi",    
+	"imageLink": "img1.png",
+    "name": "Pyramid2",
+    "description": "You can also upload your videos on youtube and put the link here with this format https://youtu.be/dWq0iC4YqbE?si=4h-DtiM1HBS3fdwi"
   }
 ]
