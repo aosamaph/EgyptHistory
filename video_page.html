@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link rel="stylesheet" href="video_styles.css">
+</head>
+<body>
+    <div class="video-page">
+        <div class="video-container">
+            <iframe id="videoPlayer" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            <!-- For static videos -->
+            <video id="staticVideoPlayer" controls autoplay style="display: none;">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <h2 id="videoTitle" class="video-title"></h2>
+        <a href="index.html" class="back-link">Back to Main Page</a>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to retrieve video URL and title from query parameter
+            function getVideoInfoFromQuery() {
+                const queryString = window.location.search;
+                const urlParams = new URLSearchParams(queryString);
+                return {
+                    videoUrl: urlParams.get('video'),
+                    videoTitle: urlParams.get('title')
+                };
+            }
+
+            // Function to extract YouTube video ID from different YouTube link formats
+            function extractYouTubeVideoId(videoUrl) {
+                const url = new URL(videoUrl);
+                let videoId;
+                if (url.hostname === 'youtu.be') {
+                    videoId = url.pathname.substring(1);
+                } else {
+                    videoId = url.searchParams.get('v');
+                }
+                return videoId;
+            }
+
+            // Set the video source and title dynamically
+            const videoPlayer = document.getElementById("videoPlayer");
+            const staticVideoPlayer = document.getElementById("staticVideoPlayer");
+            const videoTitle = document.getElementById("videoTitle");
+            const videoInfo = getVideoInfoFromQuery();
+            if (videoInfo.videoUrl) {
+                if (videoInfo.videoUrl.includes("youtube.com") || videoInfo.videoUrl.includes("youtu.be")) {
+                    // For YouTube videos
+                    const videoId = extractYouTubeVideoId(videoInfo.videoUrl);
+                    const embeddedUrl = `https://www.youtube.com/embed/${videoId}`;
+                    videoPlayer.src = decodeURIComponent(embeddedUrl);
+                    videoPlayer.style.display = "block";
+                    staticVideoPlayer.style.display = "none";
+                } else {
+                    // For static videos
+                    staticVideoPlayer.src = decodeURIComponent(videoInfo.videoUrl);
+                    staticVideoPlayer.style.display = "block";
+                    videoPlayer.style.display = "none";
+                }
+                videoTitle.textContent = decodeURIComponent(videoInfo.videoTitle || 'Untitled Video');
+            }
+        });
+    </script>
+</body>
+</html>
